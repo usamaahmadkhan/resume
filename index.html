@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usama Ahmad – Senior Platform Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --accent:     #0369A1;
+      --dark:       #0C1929;
+      --body-text:  #1E293B;
+      --muted:      #64748B;
+      --sidebar-bg: #F1F5F9;
+      --border:     #E2E8F0;
+      --white:      #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      font-family: 'Inter', sans-serif;
+      font-size: 10pt;
+      line-height: 1.5;
+      color: var(--body-text);
+      background: #dde3ea;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      background: var(--white);
+      box-shadow: 0 4px 40px rgba(0,0,0,.15);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+    .header {
+      padding: 24px 30px 18px;
+      border-bottom: 2.5px solid var(--accent);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 16px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .header-name h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 27pt;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.05;
+      letter-spacing: -0.4px;
+    }
+
+    .header-name .job-title {
+      font-size: 10pt;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    .header-contact {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex-shrink: 0;
+    }
+
+    .contact-row {
+      font-size: 8.5pt;
+      color: var(--muted);
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .contact-row a { color: var(--muted); text-decoration: none; }
+    .contact-row a:hover { color: var(--accent); }
+    .contact-sep { color: var(--border); user-select: none; }
+
+    /* BODY */
+    .body { display: flex; flex: 1; }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 33%;
+      background: var(--sidebar-bg);
+      padding: 20px 16px 20px 24px;
+      border-right: 1px solid var(--border);
+      flex-shrink: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* MAIN */
+    .main { flex: 1; padding: 20px 26px 20px 20px; }
+
+    /* SECTION */
+    .section { margin-bottom: 16px; }
+    .section:last-child { margin-bottom: 0; }
+
+    .section-title {
+      font-size: 6.8pt;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 3px;
+      margin-bottom: 9px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* SUMMARY */
+    .summary-text { font-size: 9pt; color: var(--body-text); line-height: 1.65; }
+
+    /* EXPERIENCE */
+    .exp-item { margin-bottom: 13px; page-break-inside: avoid; }
+    .exp-item:last-child { margin-bottom: 0; }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 6px;
+    }
+
+    .exp-company { font-weight: 600; font-size: 10pt; color: var(--dark); }
+    .exp-date { font-size: 8pt; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
+    .exp-role { font-size: 8.5pt; color: var(--accent); font-weight: 500; margin: 1px 0 5px; }
+
+    .exp-bullets { list-style: none; }
+
+    .exp-bullets li {
+      font-size: 9pt;
+      color: var(--body-text);
+      padding-left: 12px;
+      position: relative;
+      margin-bottom: 3.5px;
+      line-height: 1.5;
+    }
+
+    .exp-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 8pt;
+      top: 0.5px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .exp-bullets li strong { color: var(--dark); font-weight: 600; }
+
+    /* STAKATER GROUP */
+    .company-group { margin-bottom: 13px; page-break-inside: avoid; }
+
+    .company-group-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 6px;
+      padding-bottom: 3px;
+      border-bottom: 1px dashed var(--border);
+      margin-bottom: 8px;
+    }
+
+    .company-group-name { font-weight: 600; font-size: 10pt; color: var(--dark); }
+    .company-group-tenure { font-size: 8pt; color: var(--muted); white-space: nowrap; }
+
+    .sub-role { margin-bottom: 10px; }
+    .sub-role:last-child { margin-bottom: 0; }
+
+    .sub-role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .sub-role-title { font-size: 8.5pt; font-weight: 500; color: var(--accent); }
+    .sub-role-date { font-size: 8pt; color: var(--muted); white-space: nowrap; }
+
+    /* SKILLS */
+    .skill-group { margin-bottom: 9px; }
+    .skill-group:last-child { margin-bottom: 0; }
+
+    .skill-label {
+      font-size: 7.2pt;
+      font-weight: 600;
+      color: var(--dark);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 3px; }
+
+    .tag {
+      font-size: 7.8pt;
+      background: var(--white);
+      border: 1px solid var(--border);
+      color: var(--body-text);
+      padding: 2px 6px;
+      border-radius: 3px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* CERTIFICATIONS */
+    .cert-item { margin-bottom: 6px; }
+    .cert-item:last-child { margin-bottom: 0; }
+    .cert-name { font-size: 8.5pt; color: var(--body-text); font-weight: 500; line-height: 1.4; }
+
+    /* PRINT HINT */
+    .print-hint {
+      text-align: center;
+      padding: 5px 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 8pt;
+      color: #94a3b8;
+      background: #f8fafc;
+    }
+
+    @media print {
+      .print-hint { display: none; }
+      @page { size: A4; margin: 0; }
+      html, body { background: white; }
+      .page { width: 100%; min-height: 100vh; margin: 0; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+<p class="print-hint">
+  Export PDF: <strong>Ctrl+P</strong> / <strong>Cmd+P</strong> &rarr; Save as PDF &middot; Paper: A4 &middot; Margins: None &middot; &#10003; Background graphics
+</p>
+
+<div class="page">
+
+  <header class="header">
+    <div class="header-name">
+      <h1>Usama Ahmad</h1>
+      <div class="job-title">Senior Platform Engineer &nbsp;&middot;&nbsp; 9+ Years</div>
+    </div>
+    <div class="header-contact">
+      <div class="contact-row">
+        <a href="mailto:usama.ahmad.khan@hotmail.com">usama.ahmad.khan@hotmail.com</a>
+      </div>
+      <div class="contact-row">
+        <a href="https://www.linkedin.com/in/usamaahmadkhan">linkedin.com/in/usamaahmadkhan</a>
+        <span class="contact-sep">|</span>
+        <a href="https://github.com/usamaahmadkhan">github.com/usamaahmadkhan</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="body">
+
+    <aside class="sidebar">
+
+      <div class="section">
+        <div class="section-title">Technical Skills</div>
+
+        <div class="skill-group">
+          <div class="skill-label">Cloud &amp; Orchestration</div>
+          <div class="skill-tags">
+            <span class="tag">AWS EKS</span>
+            <span class="tag">GCP GKE</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">OpenShift</span>
+            <span class="tag">VPC / VPN</span>
+            <span class="tag">IAM</span>
+            <span class="tag">EC2</span>
+            <span class="tag">ELB</span>
+            <span class="tag">Route53</span>
+            <span class="tag">KMS</span>
+            <span class="tag">CloudWatch</span>
+            <span class="tag">CloudTrail</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Service Mesh &amp; API Gateway</div>
+          <div class="skill-tags">
+            <span class="tag">Istio</span>
+            <span class="tag">Linkerd</span>
+            <span class="tag">Envoy</span>
+            <span class="tag">Kong</span>
+            <span class="tag">GatewayAPI</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">CI/CD &amp; GitOps</div>
+          <div class="skill-tags">
+            <span class="tag">ArgoCD</span>
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">Jenkins</span>
+            <span class="tag">Tekton</span>
+            <span class="tag">Flux</span>
+            <span class="tag">Helm</span>
+            <span class="tag">Nexus</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">IaC &amp; Platform</div>
+          <div class="skill-tags">
+            <span class="tag">Terraform</span>
+            <span class="tag">Crossplane</span>
+            <span class="tag">Ansible</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Observability</div>
+          <div class="skill-tags">
+            <span class="tag">Prometheus</span>
+            <span class="tag">Grafana</span>
+            <span class="tag">AlertManager</span>
+            <span class="tag">EFK Stack</span>
+            <span class="tag">Dynatrace</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Security &amp; Secrets</div>
+          <div class="skill-tags">
+            <span class="tag">Vault</span>
+            <span class="tag">Cert-Manager</span>
+            <span class="tag">ExternalSecrets</span>
+            <span class="tag">SealedSecrets</span>
+            <span class="tag">OPA</span>
+            <span class="tag">Cloudflare</span>
+            <span class="tag">WAF</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-label">Languages</div>
+          <div class="skill-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Bash</span>
+            <span class="tag">Golang</span>
+            <span class="tag">C</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Certifications</div>
+        <div class="cert-item"><div class="cert-name">AWS Solutions Architect Associate</div></div>
+        <div class="cert-item"><div class="cert-name">Certified Kubernetes Administrator (CKA)</div></div>
+        <div class="cert-item"><div class="cert-name">RedHat Certified System Administrator (RHCSA)</div></div>
+        <div class="cert-item"><div class="cert-name">RedHat Certified Engineer (RHCE)</div></div>
+        <div class="cert-item"><div class="cert-name">RedHat Certified OpenShift Administrator</div></div>
+        <div class="cert-item"><div class="cert-name">RedHat Certified Specialist in API Management</div></div>
+      </div>
+
+    </aside>
+
+    <main class="main">
+
+      <div class="section">
+        <div class="section-title">Summary</div>
+        <p class="summary-text">
+          Senior Platform Engineer with 9+ years of experience building and operating large-scale EKS clusters,
+          Istio service mesh, and AWS infrastructure. Proficient in Python/Bash tooling, Terraform, and
+          ArgoCD-driven GitOps workflows. Proven track record of partnering with engineering teams to improve
+          microservices scalability, stability, and observability across production environments.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Experience</div>
+
+        <!-- Careem -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-company">Careem Technologies</span>
+            <span class="exp-date">Dec 2023 – Present</span>
+          </div>
+          <div class="exp-role">Senior Site Reliability Engineer</div>
+          <ul class="exp-bullets">
+            <li><strong>AWS cost optimization</strong> — Redesigned cross-account traffic with flat networking, eliminating 25% of daily infrastructure spend.</li>
+            <li><strong>Istio service mesh migration</strong> — Designed cross-cluster mTLS certificate management on EKS for secure service-to-service communication; automated GatewayAPI rollouts with Helm charts and built production-readiness playbooks with rollback paths.</li>
+            <li><strong>Global hostname architecture</strong> — Strategized a cross-account hostname strategy on AWS to reduce latency and architectural complexity.</li>
+            <li><strong>GitOps delivery with ArgoCD</strong> — Designed a multi-tenant ArgoCD framework to isolate team operations and reduce operational toil.</li>
+            <li><strong>Python &amp; Bash tooling</strong> — Integrated AWS Secrets Manager dynamically into CI/CD pipelines; automated contract validation in testing workflows.</li>
+            <li><strong>Secure AWS VPN architecture</strong> — Built end-to-end partner integration using VPN, VPC peering, Route53, IAM, and ELB.</li>
+            <li><strong>On-call SRE</strong> — Resolved production incidents, authored postmortems and runbooks, and built Prometheus/Grafana/AlertManager dashboards to reduce MTTR.</li>
+          </ul>
+        </div>
+
+        <!-- Stakater group -->
+        <div class="company-group">
+          <div class="company-group-header">
+            <span class="company-group-name">Stakater Inc.</span>
+            <span class="company-group-tenure">Mar 2019 – Nov 2023 &nbsp;·&nbsp; 4.5 yrs</span>
+          </div>
+
+          <div class="sub-role">
+            <div class="sub-role-header">
+              <span class="sub-role-title">Team Lead, Consultation APAC (Kubernetes)</span>
+              <span class="sub-role-date">Jul 2022 – Nov 2023</span>
+            </div>
+            <ul class="exp-bullets">
+              <li><strong>Cross-functional delivery lead</strong> — Primary technical contact across internal teams, partners, and customers; drove projects from scoping to production handoff.</li>
+              <li><strong>RedHat consultations</strong> — Delivered Kubernetes (EKS/OpenShift) engagements for clients in education, e-commerce, banking, and telecom across APAC and EMEA.</li>
+              <li><strong>Founded PaaS team</strong> — Built a Managed Kubernetes service team from scratch to meet committed SLAs.</li>
+              <li><strong>Product &amp; people leadership</strong> — Defined multiple product lines from inception to production readiness while mentoring engineers.</li>
+            </ul>
+          </div>
+
+          <div class="sub-role">
+            <div class="sub-role-header">
+              <span class="sub-role-title">Senior DevOps Engineer</span>
+              <span class="sub-role-date">Jan 2021 – Jun 2022</span>
+            </div>
+            <ul class="exp-bullets">
+              <li><strong>Managed Kubernetes platform</strong> — Architected the company's multi-cloud EKS/GKE/AKS/OpenShift offering.</li>
+              <li><strong>Multi-tenant RBAC &amp; IAM</strong> — Designed customized access controls for Kubernetes clusters at scale.</li>
+              <li><strong>GitOps for Professional Services</strong> — Deployed ArgoCD-based workflows across customers' production environments.</li>
+              <li><strong>Infrastructure automation</strong> — Used Terraform to manage deployments across AWS and on-prem environments.</li>
+            </ul>
+          </div>
+
+          <div class="sub-role">
+            <div class="sub-role-header">
+              <span class="sub-role-title">DevOps Engineer</span>
+              <span class="sub-role-date">Mar 2019 – Dec 2020</span>
+            </div>
+            <ul class="exp-bullets">
+              <li><strong>Production cluster operations</strong> — Operated EKS, GKE, AKS, and OpenShift for high-availability microservices across AWS, GCP, and Azure.</li>
+              <li><strong>Open source contributions</strong> — Built features and fixes for Golang projects including Reloader and Ingress Monitor Controller.</li>
+              <li><strong>Observability &amp; CI/CD platform</strong> — Implemented Prometheus/Grafana, ArgoCD delivery, and Vault-based secrets management across production clusters.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- xFlow -->
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-company">xFlow Research</span>
+            <span class="exp-date">Nov 2017 – Mar 2019</span>
+          </div>
+          <div class="exp-role">Network Security Engineer</div>
+          <ul class="exp-bullets">
+            <li><strong>High-throughput packet processing</strong> — Built network solutions in Python and C with MariaDB at 40 Gbps line rate.</li>
+            <li><strong>Virtual BNG development</strong> — Developed Virtual Broadband Network Gateway modules using Python and C.</li>
+          </ul>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</div>
+
+</body>
+</html>
